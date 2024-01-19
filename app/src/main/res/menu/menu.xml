@@ -11,9 +11,9 @@
         android:id="@+id/itemLista"
         android:title="Listado" />
     <item
-        android:id="@+id/itemVende"
-        android:title="Vende" />
-    <item
         android:id="@+id/itemCompra"
         android:title="Compra" />
+    <item
+        android:id="@+id/itemVende"
+        android:title="Vende" />
 </menu>
