@@ -11,6 +11,9 @@
         android:id="@+id/itemLista"
         android:title="Listado" />
     <item
+        android:id="@+id/itemGestor"
+        android:title="Gestor de vehiculos" />
+    <item
         android:id="@+id/itemCompra"
         android:title="Compra" />
     <item

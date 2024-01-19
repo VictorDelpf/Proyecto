@@ -5,17 +5,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import com.example.desguacespaquito.databinding.ActivityMainBinding
+import com.example.desguacespaquito.databinding.ActivityGestorBinding
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+class GestorActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityGestorBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding= ActivityGestorBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar5)
 
-        setSupportActionBar(binding.toolbar)
+        binding.addButton.setOnClickListener{
+            val anadirVehiculoActivityIntent = Intent(this, AnadirVehiculoActivity::class.java)
+            startActivity(anadirVehiculoActivityIntent)
+        }
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu,menu)
@@ -24,14 +30,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
-            R.id.itemLista->{
-                 val ListadoActivityIntent = Intent(this,ListadoActivity::class.java)
-                 startActivity(ListadoActivityIntent)
+            R.id.itemPrincipal->{
+                val MainActivityIntent = Intent(this,MainActivity::class.java)
+                startActivity(MainActivityIntent)
                 true
-             }
-            R.id.itemGestor->{
-                val GestorActivityIntent = Intent(this,GestorActivity::class.java)
-                startActivity(GestorActivityIntent)
+            }
+            R.id.itemLista->{
+                val ListadoActivityIntent = Intent(this,ListadoActivity::class.java)
+                startActivity(ListadoActivityIntent)
                 true
             }
             R.id.itemCompra->{
@@ -40,11 +46,6 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.itemVende->{
-                val VendeActivityIntent = Intent(this,VendeActivity::class.java)
-                startActivity(VendeActivityIntent)
-                true
-            }
-            R.id.itemGestor->{
                 val VendeActivityIntent = Intent(this,VendeActivity::class.java)
                 startActivity(VendeActivityIntent)
                 true

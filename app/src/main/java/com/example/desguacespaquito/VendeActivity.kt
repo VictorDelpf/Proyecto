@@ -34,6 +34,11 @@ class VendeActivity : AppCompatActivity() {
                 startActivity(ListadoActivityIntent)
                 true
             }
+            R.id.itemGestor->{
+                val GestorActivityIntent = Intent(this,GestorActivity::class.java)
+                startActivity(GestorActivityIntent)
+                true
+            }
             R.id.itemCompra->{
                 val CompraActivityIntent = Intent(this,CompraActivity::class.java)
                 startActivity(CompraActivityIntent)
