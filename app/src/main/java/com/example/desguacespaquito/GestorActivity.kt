@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.desguacespaquito.databinding.ActivityGestorBinding
 
 class GestorActivity : AppCompatActivity() {
@@ -15,6 +17,16 @@ class GestorActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar5)
 
+        binding.carsRecyclerView.layoutManager =
+            GridLayoutManager(this, 1, RecyclerView.VERTICAL, false)
+
+        binding.carsRecyclerView.adapter = CarAdapter(
+
+            listOf(
+                Car("2343JLP", 2009, "Opel", "Corsa D", "Blanco"),
+                Car("0069FDE", 2006, "Toyota", "Avensis", "Gris oscuro")
+            ), this
+        )
         binding.addButton.setOnClickListener{
             val anadirVehiculoActivityIntent = Intent(this, AnadirVehiculoActivity::class.java)
             startActivity(anadirVehiculoActivityIntent)

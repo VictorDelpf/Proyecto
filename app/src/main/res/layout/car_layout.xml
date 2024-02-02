@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/carBrandTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        android:text="Marca"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/carModelTV"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="Modelo"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/carBrandTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toEndOf="@+id/carBrandTV"
+        app:layout_constraintTop_toTopOf="@+id/carBrandTV"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/carPlateTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Matricula"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/editCarButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carBrandTV" />
+
+    <ImageButton
+        android:id="@+id/deleteCarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/editCarButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/editCarButton"
+        app:layout_constraintTop_toTopOf="@+id/editCarButton"
+        app:srcCompat="@drawable/delete_fill0_wght500_grad0_opsz48" />
+
+    <ImageButton
+        android:id="@+id/editCarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/carPlateTV"
+        app:layout_constraintEnd_toStartOf="@+id/deleteCarButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/carPlateTV"
+        app:layout_constraintTop_toTopOf="@+id/carPlateTV"
+        app:srcCompat="@drawable/edit_fill0_wght500_grad0_opsz48" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

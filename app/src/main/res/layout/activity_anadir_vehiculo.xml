@@ -32,46 +32,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar6" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:gravity="right|center_vertical"
-        android:text="Matricula: "
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/plateTP"
-        app:layout_constraintEnd_toStartOf="@+id/plateTP"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/plateTP" />
-
     <EditText
         android:id="@+id/plateTP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
         android:ems="10"
-        android:hint="Añade los datos"
+        android:hint="Matricula"
         android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="right|center_vertical"
-        android:text="Marca: "
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/brandTP"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/brandTP" />
 
     <EditText
         android:id="@+id/brandTP"
@@ -79,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Añade los datos"
+        android:hint="Marca"
         android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/plateTP"
@@ -92,48 +64,12 @@
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Añade los datos"
+        android:hint="Modelo"
         android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/brandTP"
         app:layout_constraintStart_toStartOf="@+id/brandTP"
         app:layout_constraintTop_toBottomOf="@+id/brandTP" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="right|center_vertical"
-        android:text="Modelo: "
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/modelTP"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/modelTP" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="right|center_vertical"
-        android:text="Año: "
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/yearTP"
-        app:layout_constraintEnd_toEndOf="@+id/textView7"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="@+id/yearTP" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="right|center_vertical"
-        android:text="Color: "
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/colorTP"
-        app:layout_constraintEnd_toEndOf="@+id/textView8"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="@+id/colorTP" />
 
     <EditText
         android:id="@+id/yearTP"
@@ -141,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Añade los datos"
+        android:hint="Año"
         android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/modelTP"
@@ -154,10 +90,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Añade los datos"
+        android:hint="Color"
         android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/yearTP"
         app:layout_constraintStart_toStartOf="@+id/yearTP"
         app:layout_constraintTop_toBottomOf="@+id/yearTP" />
+
+    <Button
+        android:id="@+id/addButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Añadir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
