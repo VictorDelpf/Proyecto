@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.example.desguacespaquito.databinding.CarLayoutBinding
+import com.example.desguacespaquito.db.AppDatabase
+import com.example.desguacespaquito.model.Car
 
-class CarAdapter(var cars: List<Car>, val context: Context):
+class CarAdapter(var cars: List<Car>, val context: Context, val db: AppDatabase):
  RecyclerView.Adapter<CarAdapter.ItemViewHolder>() {
 
   private val layoutInflater = LayoutInflater.from(context)
@@ -39,6 +40,9 @@ class CarAdapter(var cars: List<Car>, val context: Context):
 
   binding.deleteCarButton.setOnClickListener{
    Toast.makeText(context, "Eliminando el libro ${car.model}", Toast.LENGTH_LONG).show()
+   db.carDao().delete(car.numberPlate)
+   cars= db.carDao().list()
+   notifyDataSetChanged()
   }
   binding.editCarButton.setOnClickListener {
    Toast.makeText(context, "Editando el libro ${car.model}", Toast.LENGTH_LONG).show()

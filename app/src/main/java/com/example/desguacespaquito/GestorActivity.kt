@@ -7,25 +7,33 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.example.desguacespaquito.databinding.ActivityGestorBinding
+import com.example.desguacespaquito.db.AppDatabase
+import com.example.desguacespaquito.model.Car
 
 class GestorActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGestorBinding
+    private lateinit var db: AppDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityGestorBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar5)
+        db = Room
+            .databaseBuilder(
+                this,
+                AppDatabase::class.java,
+                AppDatabase.DATABASE_NAME
+            )
+            .allowMainThreadQueries().build()
 
         binding.carsRecyclerView.layoutManager =
             GridLayoutManager(this, 1, RecyclerView.VERTICAL, false)
 
         binding.carsRecyclerView.adapter = CarAdapter(
-
-            listOf(
-                Car("2343JLP", 2009, "Opel", "Corsa D", "Blanco"),
-                Car("0069FDE", 2006, "Toyota", "Avensis", "Gris oscuro")
-            ), this
+            db.carDao().list(), this, db
         )
         binding.addButton.setOnClickListener{
             val anadirVehiculoActivityIntent = Intent(this, AnadirVehiculoActivity::class.java)
@@ -33,6 +41,13 @@ class GestorActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        val adapter= binding.carsRecyclerView.adapter as CarAdapter
+        adapter.cars = db.carDao().list()
+        adapter.notifyDataSetChanged()
+    }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -67,4 +82,5 @@ class GestorActivity : AppCompatActivity() {
             }
         }
     }
+
 }
