@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DesguacesPaquito"
-
         tools:targetApi="31">
-
+        <activity
+            android:name=".EditCarActivity"
+            android:exported="false" />
         <activity
             android:name=".AnadirVehiculoActivity"
             android:exported="true" />
