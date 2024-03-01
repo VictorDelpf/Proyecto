@@ -26,8 +26,8 @@ class AnadirVehiculoActivity : AppCompatActivity() {
                 AppDatabase.DATABASE_NAME
             )
             .allowMainThreadQueries().build()
-        binding.addButton2.setOnClickListener {
-            val car = Car(binding.plateTP.text.toString(), binding.yearTP.text.toString().toInt(), binding.brandTP.text.toString(), binding.modelTP.text.toString(), binding.colorTP.text.toString())
+/*        binding.addButton2.setOnClickListener {
+            val car = Car(binding.plateTP.text.toString(), binding.yearTP.text.toString().toInt(), binding.brandTP.text.toString(), binding.modelTP.text.toString(), binding.colorTP.text.toString(), binding.)
             Toast.makeText(
                 this,
                 "Vamos a guardar: "+ car.model,
@@ -35,7 +35,7 @@ class AnadirVehiculoActivity : AppCompatActivity() {
             ).show()
             db.carDao().save(car)
             finish()
-        }
+        }*/
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_back,menu)

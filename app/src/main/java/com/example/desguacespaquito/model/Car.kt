@@ -11,4 +11,5 @@ data class Car(
     @ColumnInfo("brand") val brand: String,
     @ColumnInfo("model") val model: String,
     @ColumnInfo("color") val color: String,
+    @ColumnInfo("customerId") val customerId: Int
 )
