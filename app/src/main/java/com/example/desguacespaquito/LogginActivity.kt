@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.room.Room
 import com.example.desguacespaquito.databinding.ActivityLogginBinding
 import com.example.desguacespaquito.db.AppDatabase
-import com.example.desguacespaquito.model.Customer
 
 class LogginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLogginBinding
@@ -33,9 +32,10 @@ class LogginActivity : AppCompatActivity() {
             }else{
                 val user = binding.usernamePT.text.toString()
                 val pass1 = binding.passwordTP.text.toString()
-                val login = db.customerDao().inicio(user, pass1)
-                if(login == 1){
+                val userId = db.customerDao().inicio(user, pass1)
+                if(userId != null){
                     val mainActivityIntent = Intent(this, MainActivity::class.java)
+                    mainActivityIntent.putExtra("usuario", userId)
                     startActivity(mainActivityIntent)
                 }else{
                     Toast.makeText(

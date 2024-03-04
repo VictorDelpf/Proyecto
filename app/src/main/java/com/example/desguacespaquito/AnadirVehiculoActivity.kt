@@ -19,6 +19,8 @@ class AnadirVehiculoActivity : AppCompatActivity() {
         binding= ActivityAnadirVehiculoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar6)
+        val extras = intent.extras
+        val user = extras?.getInt("usuario")!!
         db = Room
             .databaseBuilder(
                 this,
@@ -26,8 +28,15 @@ class AnadirVehiculoActivity : AppCompatActivity() {
                 AppDatabase.DATABASE_NAME
             )
             .allowMainThreadQueries().build()
-/*        binding.addButton2.setOnClickListener {
-            val car = Car(binding.plateTP.text.toString(), binding.yearTP.text.toString().toInt(), binding.brandTP.text.toString(), binding.modelTP.text.toString(), binding.colorTP.text.toString(), binding.)
+        binding.addButton2.setOnClickListener {
+            val car = Car(
+                binding.plateTP.text.toString(),
+                binding.yearTP.text.toString().toInt(),
+                binding.brandTP.text.toString(),
+                binding.modelTP.text.toString(),
+                binding.colorTP.text.toString(),
+                user
+            )
             Toast.makeText(
                 this,
                 "Vamos a guardar: "+ car.model,
@@ -35,7 +44,7 @@ class AnadirVehiculoActivity : AppCompatActivity() {
             ).show()
             db.carDao().save(car)
             finish()
-        }*/
+        }
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_back,menu)

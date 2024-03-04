@@ -32,7 +32,7 @@ class ListadoActivity : AppCompatActivity() {
             GridLayoutManager(this, 1, RecyclerView.VERTICAL, false)
 
         binding.carsRecyclerView.adapter = CarAdapter(
-            db.carDao().list(), this, db
+            db.carDao().listByCostumer(), this, db
         )
         }
 
@@ -41,7 +41,7 @@ class ListadoActivity : AppCompatActivity() {
         super.onResume()
 
         val adapter= binding.carsRecyclerView.adapter as CarAdapter
-        adapter.cars = db.carDao().list()
+        adapter.cars = db.carDao().listByCostumer()
         adapter.notifyDataSetChanged()
     }
 

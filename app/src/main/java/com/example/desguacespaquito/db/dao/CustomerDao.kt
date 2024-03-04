@@ -12,6 +12,6 @@ interface CustomerDao {
     fun list(): List<Customer>
     @Insert
     fun save(customer: Customer)
-    @Query("SELECT Count(*) from customer WHERE ussername=:ussername AND password=:password")
-    fun inicio(ussername: String, password: String): Int
+    @Query("SELECT id from customer WHERE ussername=:ussername AND password=:password")
+    fun inicio(ussername: String, password: String): Int?
 }

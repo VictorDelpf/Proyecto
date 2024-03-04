@@ -8,7 +8,7 @@ import com.example.desguacespaquito.model.Car
 @Dao
 interface CarDao {
     @Query("SELECT * FROM car")
-    fun list(): List<Car>
+    fun listByCostumer(): List<Car>
     @Query("DELETE FROM car WHERE numberPlate=:numberPlate")
     fun delete(numberPlate: String)
     @Insert

@@ -8,7 +8,6 @@ import android.view.MenuItem
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
-import com.example.desguacespaquito.databinding.ActivityListadoBinding
 import com.example.desguacespaquito.databinding.ActivityVendeBinding
 import com.example.desguacespaquito.db.AppDatabase
 
@@ -33,7 +32,7 @@ class VendeActivity : AppCompatActivity() {
             GridLayoutManager(this, 1, RecyclerView.VERTICAL, false)
 
         binding.carsRecyclerView.adapter = CarAdapter3(
-            db.carDao().list(), this, db
+            db.carDao().listByCostumer(), this, db
         )
     }
 

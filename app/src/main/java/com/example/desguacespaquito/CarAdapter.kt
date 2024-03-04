@@ -41,7 +41,7 @@ class CarAdapter(var cars: List<Car>, val context: Context, val db: AppDatabase)
   binding.deleteCarButton.setOnClickListener{
    Toast.makeText(context, "Eliminando el coche ${car.model}", Toast.LENGTH_LONG).show()
    db.carDao().delete(car.numberPlate)
-   cars= db.carDao().list()
+   cars= db.carDao().listByCostumer()
    notifyDataSetChanged()
   }
   binding.editCarButton.setOnClickListener {

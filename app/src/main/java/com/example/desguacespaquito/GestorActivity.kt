@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.desguacespaquito.databinding.ActivityGestorBinding
 import com.example.desguacespaquito.db.AppDatabase
-import com.example.desguacespaquito.model.Car
 
 class GestorActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGestorBinding
@@ -21,6 +20,7 @@ class GestorActivity : AppCompatActivity() {
         binding= ActivityGestorBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar5)
+        val userId = intent.extras?.getInt("usuario")!!
         db = Room
             .databaseBuilder(
                 this,
@@ -33,10 +33,11 @@ class GestorActivity : AppCompatActivity() {
             GridLayoutManager(this, 1, RecyclerView.VERTICAL, false)
 
         binding.carsRecyclerView.adapter = CarAdapter(
-            db.carDao().list(), this, db
+            db.carDao().listByCostumer(), this, db
         )
         binding.addButton.setOnClickListener{
             val anadirVehiculoActivityIntent = Intent(this, AnadirVehiculoActivity::class.java)
+            anadirVehiculoActivityIntent.putExtra("usuario", userId)
             startActivity(anadirVehiculoActivityIntent)
         }
     }
@@ -45,7 +46,7 @@ class GestorActivity : AppCompatActivity() {
         super.onResume()
 
         val adapter= binding.carsRecyclerView.adapter as CarAdapter
-        adapter.cars = db.carDao().list()
+        adapter.cars = db.carDao().listByCostumer()
         adapter.notifyDataSetChanged()
     }
 

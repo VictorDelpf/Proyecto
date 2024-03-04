@@ -9,12 +9,15 @@ import com.example.desguacespaquito.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+
+        val extras = intent.extras
 
     }
 
@@ -24,30 +27,31 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val userId = intent.extras?.getInt("usuario")!!
+
         return when(item.itemId){
             R.id.itemLista->{
-                 val ListadoActivityIntent = Intent(this,ListadoActivity::class.java)
-                 startActivity(ListadoActivityIntent)
+                 val listadoActivityIntent = Intent(this,ListadoActivity::class.java)
+                listadoActivityIntent.putExtra("usuario", userId)
+                 startActivity(listadoActivityIntent)
                 true
              }
             R.id.itemGestor->{
-                val GestorActivityIntent = Intent(this,GestorActivity::class.java)
-                startActivity(GestorActivityIntent)
+                val gestorActivityIntent = Intent(this,GestorActivity::class.java)
+                gestorActivityIntent.putExtra("usuario", userId)
+                startActivity(gestorActivityIntent)
                 true
             }
             R.id.itemCompra->{
-                val CompraActivityIntent = Intent(this,CompraActivity::class.java)
-                startActivity(CompraActivityIntent)
+                val compraActivityIntent = Intent(this,CompraActivity::class.java)
+                compraActivityIntent.putExtra("usuario", userId)
+                startActivity(compraActivityIntent)
                 true
             }
             R.id.itemVende->{
-                val VendeActivityIntent = Intent(this,VendeActivity::class.java)
-                startActivity(VendeActivityIntent)
-                true
-            }
-            R.id.itemGestor->{
-                val VendeActivityIntent = Intent(this,VendeActivity::class.java)
-                startActivity(VendeActivityIntent)
+                val vendeActivityIntent = Intent(this,VendeActivity::class.java)
+                vendeActivityIntent.putExtra("usuario", userId)
+                startActivity(vendeActivityIntent)
                 true
             }
             else -> {
